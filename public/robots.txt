@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sparkly-twilight-d34fe0.netlify.app/sitemap.xml
+Sitemap: https://mohanish.in/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
