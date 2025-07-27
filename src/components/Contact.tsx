@@ -30,10 +30,6 @@ const Contact = () => {
         message: formData.message
       };
 
-       const headers = new Headers();
-       headers.append('Content-Type', 'application/json');
-       headers.append('Origin', 'https://mohanish.in');
-
       // Send data to webhook
       const response = await fetch(
         'https://mohanishx-n8n.koyeb.app/webhook/f6b5ef8c-0bb1-4b86-8d39-a8c02e6407c0',
@@ -43,7 +39,6 @@ const Contact = () => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(payload)
-          mode: 'cors' // Enable CORS mode
         }
       );
 
