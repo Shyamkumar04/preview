@@ -8,7 +8,7 @@ const TerminalIcon: React.FC<TerminalIconProps> = ({ onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group animate-pulse hover:animate-none"
+      className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-gradient-to-r from-black-500 to-black-600 hover:from-black-400 hover:to-black-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group animate-pulse hover:animate-none"
       title="Open Terminal"
     >
       <img 

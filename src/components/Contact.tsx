@@ -22,15 +22,39 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
-    
-    // Show success message (in a real app, you'd handle this properly)
-    alert('Message sent successfully!');
+    try {
+      // Prepare payload for webhook
+      const payload = {
+        name: formData.name,
+        mail: formData.email,  // Note: Using 'mail' as required by the webhook
+        message: formData.message
+      };
+
+      // Send data to webhook
+      const response = await fetch(
+        'https://mohanishx-n8n.koyeb.app/webhook/f6b5ef8c-0bb1-4b86-8d39-a8c02e6407c0',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to send message. Status: ${response.status}`);
+      }
+
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+      alert('Message sent successfully!');
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Error sending message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

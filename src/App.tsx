@@ -16,6 +16,10 @@ import DeviceInfoWidget from './components/DeviceInfoWidget';
 
 function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  
+  // Configuration for Hero section
+  const showProfilePicture = true; // Set to true to show profile picture
+  const profileImageUrl = 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800'; // Custom profile image URL
 
   return (
     <ThemeProvider>
@@ -23,7 +27,10 @@ function App() {
         <MatrixBackground />
         <div className="relative z-10">
           <Navbar />
-          <Hero />
+          <Hero 
+            showProfilePicture={showProfilePicture}
+            profileImageUrl={profileImageUrl}
+          />
           <About />
           <Skills />
           <Projects />
