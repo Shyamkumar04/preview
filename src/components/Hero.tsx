@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({
   }, [displayText, isTyping, currentRole, roles]);
 
   const handleDownloadCV = () => {
-    trackDownload('Mohanish-Resume.pdf');
+    trackDownload('https://mohanish.in/Mohanish-Resume.pdf');
     // Add actual download logic here
   };
 
