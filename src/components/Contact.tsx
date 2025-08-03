@@ -118,7 +118,7 @@ const Contact = () => {
                     GitHub
                   </a>
                   <a 
-                    href="https://linkedin.com" 
+                    href="https://linkedin.com/in/mohanish7777777" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-muted border border-border hover:border-primary text-muted-foreground hover:text-primary rounded font-mono text-sm transition-all duration-300"
@@ -136,7 +136,7 @@ const Contact = () => {
                     Instagram
                   </a>
                   <a 
-                    href="https://twitter.com" 
+                    href="https://x.com/MohanishK3" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-muted border border-border hover:border-primary text-muted-foreground hover:text-primary rounded font-mono text-sm transition-all duration-300"
@@ -153,7 +153,7 @@ const Contact = () => {
                   Get a detailed overview of my experience and qualifications
                 </p>
                 <button className="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/80 text-primary-foreground font-mono font-bold rounded transition-all duration-300">
-                  <Download className="w-4 h-4" />
+                  <Download className="w-4 h-4" src="https://mohanish.in/Mohanish-Resume.pdf" />
                   Download Resume
                 </button>
               </div>

@@ -109,25 +109,25 @@ const Hero: React.FC<HeroProps> = ({
                 
                 <div className="flex gap-3 md:gap-4">
                   <button 
-                    onClick={() => handleSocialClick('github', 'https://github.com')}
+                    onClick={() => handleSocialClick('github', 'https://github.com/Mohanish7777777')}
                     className="p-2 md:p-3 border-2 border-muted hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 rounded"
                   >
                     <Github className="w-5 md:w-6 h-5 md:h-6" />
                   </button>
                   <button 
-                    onClick={() => handleSocialClick('linkedin', 'https://linkedin.com')}
+                    onClick={() => handleSocialClick('linkedin', 'https://linkedin.com/in/mohanish7777777')}
                     className="p-2 md:p-3 border-2 border-muted hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 rounded"
                   >
                     <Linkedin className="w-5 md:w-6 h-5 md:h-6" />
                   </button>
                   <button 
-                    onClick={() => handleSocialClick('instagram', 'https://instagram.com')}
+                    onClick={() => handleSocialClick('instagram', 'https://instagram.com/_mohanish_cybersec')}
                     className="p-2 md:p-3 border-2 border-muted hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 rounded"
                   >
                     <Instagram className="w-5 md:w-6 h-5 md:h-6" />
                   </button>
                   <button 
-                    onClick={() => handleSocialClick('twitter', 'https://twitter.com')}
+                    onClick={() => handleSocialClick('twitter', 'https://x.com/MohanishK3')}
                     className="p-2 md:p-3 border-2 border-muted hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 rounded"
                   >
                     <Twitter className="w-5 md:w-6 h-5 md:h-6" />

@@ -18,7 +18,7 @@ function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   
   // Configuration for Hero section
-  const showProfilePicture = true; // Set to true to show profile picture
+  const showProfilePicture = false; // Set to true to show profile picture
   const profileImageUrl = 'https://mohanish.in/Mohanish.jpg'; // Custom profile image URL
 
   return (
