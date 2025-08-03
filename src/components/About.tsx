@@ -71,8 +71,8 @@ const About = () => {
                 <div className="text-primary font-mono mb-4">{'> quick_stats'}</div>
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-foreground font-mono">2+</div>
-                    <div className="text-muted-foreground font-mono text-sm">Years Experience</div>
+                    <div className="text-2xl font-bold text-foreground font-mono">1+</div>
+                    <div className="text-muted-foreground font-mono text-sm">Months Experience</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-foreground font-mono">15+</div>
