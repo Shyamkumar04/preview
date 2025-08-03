@@ -19,7 +19,7 @@ function App() {
   
   // Configuration for Hero section
   const showProfilePicture = true; // Set to true to show profile picture
-  const profileImageUrl = 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800'; // Custom profile image URL
+  const profileImageUrl = 'https://mohanish.in/Mohanish.jpg'; // Custom profile image URL
 
   return (
     <ThemeProvider>
