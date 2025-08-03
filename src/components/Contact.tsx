@@ -82,7 +82,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary mr-4" />
                     <div>
                       <div className="text-muted-foreground font-mono text-sm">Email</div>
-                      <div className="text-foreground font-mono">mohanish.k@cybersec.dev</div>
+                      <div className="text-foreground font-mono">mohanish@mohanish.in</div>
                     </div>
                   </div>
 
@@ -90,7 +90,7 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-primary mr-4" />
                     <div>
                       <div className="text-muted-foreground font-mono text-sm">Phone</div>
-                      <div className="text-foreground font-mono">+1 (555) 123-4567</div>
+                      <div className="text-foreground font-mono">+91-7904707229</div>
                     </div>
                   </div>
 
@@ -127,7 +127,7 @@ const Contact = () => {
                     LinkedIn
                   </a>
                   <a 
-                    href="https://instagram.com" 
+                    href="https://instagram.com/_mohanish_cybersec" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-muted border border-border hover:border-primary text-muted-foreground hover:text-primary rounded font-mono text-sm transition-all duration-300"
@@ -234,7 +234,7 @@ const Contact = () => {
               <div className="mt-6 pt-6 border-t border-border">
                 <div className="text-primary font-mono text-sm mb-2">{'> response_time'}</div>
                 <p className="text-muted-foreground font-mono text-xs">
-                  I typically respond within 24 hours. For urgent security matters, please call directly.
+                  I typically respond within 24-48 hours. For urgent security matters, please call directly.
                 </p>
               </div>
             </div>

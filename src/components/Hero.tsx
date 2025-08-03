@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ 
   showProfilePicture = false, 
-  profileImageUrl = 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400' 
+  profileImageUrl = 'https://mohanish.in/Mohanish.jpg' 
 }) => {
   const roles = [
     'Cybersecurity Learner',
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({
   }, [displayText, isTyping, currentRole, roles]);
 
   const handleDownloadCV = () => {
-    trackDownload('mohanish-k-cv.pdf');
+    trackDownload('Mohanish-Resume.pdf');
     // Add actual download logic here
   };
 

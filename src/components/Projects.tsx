@@ -151,7 +151,7 @@ const Projects = () => {
                 Additional projects and contributions available on GitHub
               </p>
               <a 
-                href="https://github.com/mohanishk"
+                href="https://github.com/Mohanish7777777"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-mono font-bold rounded transition-all duration-300"

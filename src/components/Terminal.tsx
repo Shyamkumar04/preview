@@ -30,9 +30,9 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     home: `
 ╔══════════════════════════════════════════════════════════════╗
 ║                        MOHANISH K                            ║
-║                 Cybersecurity Analyst                       ║
-║                   DevOps Engineer                           ║
-║                System Administrator                         ║
+║                 Cybersecurity Analyst                        ║
+║                   DevOps Engineer                            ║
+║                System Administrator                          ║
 ╚══════════════════════════════════════════════════════════════╝
 
 > Securing digital landscapes and automating infrastructure
@@ -169,10 +169,10 @@ business innovation.
 ⏰ Response Time: Within 24 hours
 
 🔗 SOCIAL LINKS:
-    ├── GitHub: github.com/mohanishk
-    ├── LinkedIn: linkedin.com/in/mohanishk
-    ├── Instagram: @mohanishk_cyber
-    └── Twitter: @mohanishk_sec
+    ├── GitHub: github.com/Mohanish7777777
+    ├── LinkedIn: linkedin.com/in/Mohanish7777777
+    ├── Instagram: @_mohanish_cybersec
+    └── Twitter: @mohanishk
 
 💼 Available for:
     ├── Cybersecurity Consulting
