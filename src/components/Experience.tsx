@@ -9,7 +9,7 @@ const Experience = () => {
       location: 'Remote',
       period: 'June 2024 - August 2024',
       type: 'Internship',
-      logo: '/image.png',
+      logo: '',
       responsibilities: [
         'Assisted in threat analysis and vulnerability assessments',
         'Learned SIEM tools and security monitoring techniques',
@@ -19,11 +19,11 @@ const Experience = () => {
     },
     {
       title: 'Virtual Cybersecurity Intern',
-      company: 'HCL Technologies',
+      company: 'Deloitte',
       location: 'Virtual',
-      period: 'March 2024 - May 2024',
+      period: 'July 2024 - July 2024',
       type: 'Virtual Internship',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/HCL_Technologies_logo.svg/2560px-HCL_Technologies_logo.svg.png',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_Deloitte.svg',
       responsibilities: [
         'Completed virtual cybersecurity training modules',
         'Learned about enterprise security frameworks and compliance',
