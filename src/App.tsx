@@ -28,7 +28,7 @@ function App() {
   const shouldShow404 = !validPaths.includes(currentPath) && currentPath !== '/';
   
   // Configuration for Hero section
-  const showProfilePicture = true; // Set to true to show profile picture
+  const showProfilePicture = false; // Set to true to show profile picture
   const profileImageUrl = 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800'; // Custom profile image URL
 
   // Show 404 page for invalid routes
