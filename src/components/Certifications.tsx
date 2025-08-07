@@ -17,7 +17,7 @@ const Certifications = () => {
       name: 'Certified Ethical Hacker (CEH)',
       issuer: 'EC-Council',
       year: '2023',
-      status: 'In Progress',
+      status: 'Active',
       category: 'Security',
       verifyLink: 'https://aspen.eccouncil.org/VerifyBadge',
       downloadLink: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/'
@@ -27,7 +27,7 @@ const Certifications = () => {
       name: 'AWS Solutions Architect',
       issuer: 'Amazon Web Services',
       year: '2022',
-      status: 'In Progress',
+      status: 'Active',
       category: 'Cloud',
       verifyLink: 'https://www.credly.com/badges/aws-solutions-architect',
       downloadLink: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/'
@@ -37,7 +37,7 @@ const Certifications = () => {
       name: 'CompTIA Linux+',
       issuer: 'CompTIA',
       year: '2022',
-      status: 'In Progress',
+      status: 'Active',
       category: 'Systems',
       verifyLink: 'https://www.credly.com/badges/linux-plus',
       downloadLink: 'https://www.comptia.org/certifications/linux'
@@ -47,7 +47,7 @@ const Certifications = () => {
       name: 'Docker Certified Associate',
       issuer: 'Docker',
       year: '2022',
-      status: 'In Progress',
+      status: 'Active',
       category: 'DevOps',
       verifyLink: 'https://credentials.docker.com/verify',
       downloadLink: 'https://www.docker.com/certification'
@@ -67,7 +67,7 @@ const Certifications = () => {
       name: 'Azure Security Engineer',
       issuer: 'Microsoft',
       year: '2023',
-      status: 'In Progress',
+      status: 'Active',
       category: 'Cloud',
       verifyLink: 'https://docs.microsoft.com/en-us/learn/certifications/azure-security-engineer',
       downloadLink: 'https://docs.microsoft.com/en-us/learn/certifications/azure-security-engineer'
@@ -77,7 +77,7 @@ const Certifications = () => {
       name: 'Kubernetes Administrator',
       issuer: 'CNCF',
       year: '2023',
-      status: 'In Progress',
+      status: 'Active',
       category: 'DevOps',
       verifyLink: 'https://www.credly.com/badges/kubernetes-administrator',
       downloadLink: 'https://www.cncf.io/certification/cka/'
@@ -102,7 +102,7 @@ const Certifications = () => {
     <section id="certifications" className="py-20 bg-muted/80 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4" id="certifications-heading">
             {'> certifications'}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -156,7 +156,7 @@ const Certifications = () => {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold font-mono text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg font-bold font-mono text-foreground mb-2 group-hover:text-primary transition-colors duration-300" id={`cert-${cert.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}`}>
                   {cert.name}
                 </h3>
 

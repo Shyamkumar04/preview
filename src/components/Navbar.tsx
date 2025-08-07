@@ -53,6 +53,7 @@ const Navbar = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="text-foreground hover:text-primary transition-colors duration-300 font-mono relative group"
+                aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -81,6 +82,7 @@ const Navbar = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors duration-300 font-mono"
+                aria-label={`Navigate to ${item.label} section`}
               >
                 {'> '}{item.label}
               </button>

@@ -9,7 +9,7 @@ const Experience = () => {
       location: 'Remote',
       period: 'June 2024 - August 2024',
       type: 'Internship',
-      logo: '',
+      logo: '/image.png',
       responsibilities: [
         'Assisted in threat analysis and vulnerability assessments',
         'Learned SIEM tools and security monitoring techniques',
@@ -19,11 +19,11 @@ const Experience = () => {
     },
     {
       title: 'Virtual Cybersecurity Intern',
-      company: 'Deloitte',
+      company: 'HCL Technologies',
       location: 'Virtual',
-      period: 'July 2024 - July 2024',
+      period: 'March 2024 - May 2024',
       type: 'Virtual Internship',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_Deloitte.svg',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/HCL_Technologies_logo.svg/2560px-HCL_Technologies_logo.svg.png',
       responsibilities: [
         'Completed virtual cybersecurity training modules',
         'Learned about enterprise security frameworks and compliance',
@@ -37,7 +37,7 @@ const Experience = () => {
     <section id="experience" className="py-20 bg-background/80">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4" id="experience-heading">
             {'> experience'}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -75,7 +75,7 @@ const Experience = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold font-mono text-foreground mb-2">{exp.title}</h3>
+                    <h3 className="text-xl font-bold font-mono text-foreground mb-2" id={`experience-${exp.company.toLowerCase().replace(/\s+/g, '-')}`}>{exp.title}</h3>
                     
                     <div className="flex items-center text-primary font-mono mb-2">
                       <div className="flex items-center">

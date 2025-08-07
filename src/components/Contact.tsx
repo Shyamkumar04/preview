@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, Instagram, Twitter, Bell } from 'lucide-react';
+import Newsletter from './Newsletter';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -29,6 +31,10 @@ const Contact = () => {
         mail: formData.email,  // Note: Using 'mail' as required by the webhook
         message: formData.message
       };
+
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Origin', 'https://mohanish.in');
 
       // Send data to webhook
       const response = await fetch(
@@ -61,7 +67,7 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-background/80">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4" id="contact-heading">
             {'> contact'}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -75,7 +81,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="bg-card border border-primary/20 rounded-lg p-6">
-                <h3 className="text-2xl font-bold font-mono text-foreground mb-6">{'> get_in_touch'}</h3>
+                <h3 className="text-2xl font-bold font-mono text-foreground mb-6" id="contact-info">{'> get_in_touch'}</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-center">
@@ -105,7 +111,7 @@ const Contact = () => {
               </div>
 
               <div className="bg-card border border-primary/20 rounded-lg p-6">
-                <h3 className="text-xl font-bold font-mono text-foreground mb-4">{'> social_links'}</h3>
+                <h3 className="text-xl font-bold font-mono text-foreground mb-4" id="social-links">{'> social_links'}</h3>
                 
                 <div className="grid grid-cols-2 gap-4">
                   <a 
@@ -118,7 +124,7 @@ const Contact = () => {
                     GitHub
                   </a>
                   <a 
-                    href="https://linkedin.com/in/mohanish7777777" 
+                    href="https://www.linkedin.com/in/mohanish7777777/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-muted border border-border hover:border-primary text-muted-foreground hover:text-primary rounded font-mono text-sm transition-all duration-300"
@@ -127,7 +133,7 @@ const Contact = () => {
                     LinkedIn
                   </a>
                   <a 
-                    href="https://instagram.com/_mohanish_cybersec" 
+                    href="https://www.instagram.com/_mohanish_cybersec/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-muted border border-border hover:border-primary text-muted-foreground hover:text-primary rounded font-mono text-sm transition-all duration-300"
@@ -148,22 +154,34 @@ const Contact = () => {
               </div>
 
               <div className="bg-card border border-primary/20 rounded-lg p-6">
-                <h3 className="text-xl font-bold font-mono text-foreground mb-4">{'> download_cv'}</h3>
+                <h3 className="text-xl font-bold font-mono text-foreground mb-4" id="resources">{'> resources'}</h3>
                 <p className="text-muted-foreground font-mono text-sm mb-4">
-                  Get a detailed overview of my experience and qualifications
+                  Download resume or subscribe to newsletter for updates
                 </p>
-                <a href="https://mohanish.in/Mohanish-Resume.pdf" download>
-                <button className="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/80 text-primary-foreground font-mono font-bold rounded transition-all duration-300">
-                  <Download className="w-4 h-4"  />
-                  Download Resume
-                </button>
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a 
+                    href="https://mohanish.in/Mohanish-Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/80 text-primary-foreground font-mono font-bold rounded transition-all duration-300 justify-center"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download Resume
+                  </a>
+                  <button 
+                    onClick={() => setIsNewsletterOpen(true)}
+                    className="flex items-center gap-2 px-6 py-3 bg-muted hover:bg-muted/80 border border-border hover:border-primary text-muted-foreground hover:text-primary font-mono font-bold rounded transition-all duration-300 justify-center"
+                  >
+                    <Bell className="w-4 h-4" />
+                    Subscribe Newsletter
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="bg-card border border-primary/20 rounded-lg p-6">
-              <h3 className="text-2xl font-bold font-mono text-foreground mb-6">{'> send_message'}</h3>
+              <h3 className="text-2xl font-bold font-mono text-foreground mb-6" id="contact-form">{'> send_message'}</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -236,13 +254,16 @@ const Contact = () => {
               <div className="mt-6 pt-6 border-t border-border">
                 <div className="text-primary font-mono text-sm mb-2">{'> response_time'}</div>
                 <p className="text-muted-foreground font-mono text-xs">
-                  I typically respond within 24-48 hours. For urgent security matters, please call directly.
+                  I typically respond within 24 hours. For urgent security matters, please call directly.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Newsletter Modal */}
+      <Newsletter isOpen={isNewsletterOpen} onClose={() => setIsNewsletterOpen(false)} />
     </section>
   );
 };

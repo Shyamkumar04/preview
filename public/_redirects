@@ -1,0 +1,22 @@
+# Handle SPA routing
+/*    /index.html   200
+
+# 301 redirects for SEO
+# Redirect www to non-www
+https://www.mohanish.in/*  https://mohanish.in/:splat  301!
+
+# Redirect HTTP to HTTPS
+http://mohanish.in/*  https://mohanish.in/:splat  301!
+
+# Handle common wrong endpoints
+/portfolio  /  301
+/home       /  301
+/index      /  301
+
+# Handle section redirects
+/about      /#about      301
+/skills     /#skills     301
+/projects   /#projects   301
+/experience /#experience 301
+/contact    /#contact    301
+/certifications /#certifications 301

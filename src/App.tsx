@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { usePageTracking } from './hooks/usePageTracking';
 import { ThemeProvider } from './contexts/ThemeContext';
+import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -17,9 +19,30 @@ import DeviceInfoWidget from './components/DeviceInfoWidget';
 function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   
+  // Track page visits and user behavior
+  usePageTracking();
+  
+  // Check if current path should show 404
+  const currentPath = window.location.pathname;
+  const validPaths = ['/', '/index.html'];
+  const shouldShow404 = !validPaths.includes(currentPath) && currentPath !== '/';
+  
   // Configuration for Hero section
-  const showProfilePicture = false; // Set to true to show profile picture
-  const profileImageUrl = 'https://mohanish.in/Mohanish.jpg'; // Custom profile image URL
+  const showProfilePicture = true; // Set to true to show profile picture
+  const profileImageUrl = 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800'; // Custom profile image URL
+
+  // Show 404 page for invalid routes
+  if (shouldShow404) {
+    return (
+      <ThemeProvider>
+        <div className="bg-background text-foreground overflow-x-hidden relative min-h-screen transition-colors duration-300">
+          <MatrixBackground />
+          <NotFound />
+          <DeviceInfoWidget />
+        </div>
+      </ThemeProvider>
+    );
+  }
 
   return (
     <ThemeProvider>

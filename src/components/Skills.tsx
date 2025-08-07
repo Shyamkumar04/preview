@@ -53,7 +53,7 @@ const Skills = () => {
     <section id="skills" className="py-20 bg-background/80 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4" id="skills-heading">
             {'> skills_matrix'}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -71,7 +71,7 @@ const Skills = () => {
               >
                 <div className="flex items-center mb-6">
                   <category.icon className="w-8 h-8 text-primary mr-4" />
-                  <h3 className="text-2xl font-bold font-mono text-foreground">{category.title}</h3>
+                  <h3 className="text-2xl font-bold font-mono text-foreground" id={`skills-${category.title.toLowerCase().replace(/\s+/g, '-')}`}>{category.title}</h3>
                 </div>
 
                 <div className="space-y-4">

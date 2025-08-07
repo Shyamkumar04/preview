@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ 
   showProfilePicture = false, 
-  profileImageUrl = 'https://mohanish.in/Mohanish.jpg' 
+  profileImageUrl = 'https://mohanish.in/image.jpg' 
 }) => {
   const roles = [
     'Cybersecurity Learner',
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({
   }, [displayText, isTyping, currentRole, roles]);
 
   const handleDownloadCV = () => {
-    trackDownload('https://mohanish.in/Mohanish-Resume.pdf');
+    trackDownload('mohanish-k-cv.pdf');
     // Add actual download logic here
   };
 
@@ -75,20 +75,20 @@ const Hero: React.FC<HeroProps> = ({
             <div className={`${showProfilePicture ? 'lg:text-left text-center' : 'text-center mx-auto max-w-4xl'}`}>
               <div className="mb-8">
                 <Terminal className={`w-16 h-16 text-primary ${showProfilePicture ? 'lg:mx-0 mx-auto' : 'mx-auto'} mb-4 animate-pulse`} />
-                <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 font-mono">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 font-mono" role="banner">
                   <span className="text-foreground">MOHANISH</span>
                   <span className="text-primary ml-2 md:ml-4">K</span>
                 </h1>
               </div>
 
               <div className="mb-8">
-                <div className="text-xl md:text-2xl lg:text-3xl font-mono text-muted-foreground mb-2">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-mono text-muted-foreground mb-2">
                   {'> I am a'}
-                </div>
-                <div className={`text-2xl md:text-3xl lg:text-4xl font-bold text-primary font-mono h-12 md:h-16 flex items-center ${showProfilePicture ? 'lg:justify-start justify-center' : 'justify-center'}`}>
+                </h2>
+                <h3 className={`text-2xl md:text-3xl lg:text-4xl font-bold text-primary font-mono h-12 md:h-16 flex items-center ${showProfilePicture ? 'lg:justify-start justify-center' : 'justify-center'}`}>
                   {displayText}
                   <span className="animate-pulse ml-1">|</span>
-                </div>
+                </h3>
               </div>
 
               <div className="mb-12 max-w-2xl">
@@ -115,13 +115,13 @@ const Hero: React.FC<HeroProps> = ({
                     <Github className="w-5 md:w-6 h-5 md:h-6" />
                   </button>
                   <button 
-                    onClick={() => handleSocialClick('linkedin', 'https://linkedin.com/in/mohanish7777777')}
+                    onClick={() => handleSocialClick('linkedin', 'https://www.linkedin.com/in/mohanish7777777/')}
                     className="p-2 md:p-3 border-2 border-muted hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 rounded"
                   >
                     <Linkedin className="w-5 md:w-6 h-5 md:h-6" />
                   </button>
                   <button 
-                    onClick={() => handleSocialClick('instagram', 'https://instagram.com/_mohanish_cybersec')}
+                    onClick={() => handleSocialClick('instagram', 'https://www.instagram.com/_mohanish_cybersec/')}
                     className="p-2 md:p-3 border-2 border-muted hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 rounded"
                   >
                     <Instagram className="w-5 md:w-6 h-5 md:h-6" />

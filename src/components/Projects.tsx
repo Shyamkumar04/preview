@@ -63,7 +63,7 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-muted/80 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4" id="projects-heading">
             {'> projects'}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -87,7 +87,7 @@ const Projects = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold font-mono text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-bold font-mono text-foreground mb-3 group-hover:text-primary transition-colors duration-300" id={`project-${project.title.toLowerCase().replace(/\s+/g, '-')}`}>
                     {project.title}
                   </h3>
 

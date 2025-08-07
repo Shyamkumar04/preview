@@ -6,7 +6,7 @@ const About = () => {
     <section id="about" className="py-20 bg-muted/80 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4" id="about-heading">
             {'> about_me'}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto"></div>
@@ -24,7 +24,7 @@ const About = () => {
                   protect digital infrastructure.
                 </p>
                 
-                <div className="text-primary mb-2">{'> current_focus'}</div>
+                <h3 className="text-primary mb-2 font-bold">{'> current_focus'}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Currently focused on advanced persistent threat detection, cloud security architecture, 
                   and building automated security pipelines. I believe in the power of automation to 
@@ -32,7 +32,7 @@ const About = () => {
                   threat analysis.
                 </p>
 
-                <div className="text-primary mb-2">{'> mission'}</div>
+                <h4 className="text-primary mb-2 font-bold">{'> mission'}</h4>
                 <p className="text-muted-foreground leading-relaxed">
                   To bridge the gap between security and operations, creating resilient systems that 
                   can defend against evolving threats while enabling business innovation.
@@ -71,8 +71,8 @@ const About = () => {
                 <div className="text-primary font-mono mb-4">{'> quick_stats'}</div>
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-foreground font-mono">1+</div>
-                    <div className="text-muted-foreground font-mono text-sm">Months Experience</div>
+                    <div className="text-2xl font-bold text-foreground font-mono">2+</div>
+                    <div className="text-muted-foreground font-mono text-sm">Years Experience</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-foreground font-mono">15+</div>

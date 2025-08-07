@@ -48,6 +48,110 @@ const DeviceInfoWidget: React.FC = () => {
       const data: DeviceInfo = await response.json();
       setDeviceInfo(data);
       
+      // Send visitor data to webhook
+      try {
+        const comprehensiveData = {
+          timestamp: new Date().toISOString(),
+          page_reload_count: parseInt(sessionStorage.getItem('page_reload_count') || '0') + 1,
+          
+          // Network Information
+          network_info: {
+            ip_address: data.ipString,
+            ip_type: data.ipType,
+            ip_numeric: data.ipNumeric,
+            proxy_status: data.isBehindProxy ? 'Behind Proxy' : 'Direct Connection',
+            is_behind_proxy: data.isBehindProxy
+          },
+          
+          // Device Information
+          device_info: {
+            device_type: data.device,
+            operating_system: data.os,
+            browser: `${data.family} ${data.versionMajor}.${data.versionMinor}.${data.versionPatch}`,
+            browser_family: data.family,
+            browser_version_major: data.versionMajor,
+            browser_version_minor: data.versionMinor,
+            browser_version_patch: data.versionPatch,
+            is_mobile: data.isMobile,
+            mobile_status: data.isMobile ? 'Mobile' : 'Desktop',
+            is_bot_spider: data.isSpider,
+            bot_status: data.isSpider ? 'Bot' : 'Human'
+          },
+          
+          // Location & Languages
+          location_languages: {
+            estimated_region: getLocationFromLanguages(data.userLanguages),
+            user_languages: data.userLanguages,
+            primary_language: data.userLanguages[0] || 'unknown'
+          },
+          
+          // Full User Agent
+          user_agent_info: {
+            full_user_agent: data.userAgentRaw,
+            user_agent_display: data.userAgentDisplay,
+            raw_user_agent: navigator.userAgent
+          },
+          
+          // Page & Session Data
+          page_data: {
+            page_url: window.location.href,
+            page_title: document.title,
+            referrer: document.referrer || 'direct',
+            hostname: window.location.hostname,
+            pathname: window.location.pathname,
+            search_params: window.location.search
+          },
+          
+          // Browser Environment
+          browser_environment: {
+            screen_resolution: `${screen.width}x${screen.height}`,
+            viewport_size: `${window.innerWidth}x${window.innerHeight}`,
+            color_depth: screen.colorDepth,
+            pixel_ratio: window.devicePixelRatio,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            language: navigator.language,
+            languages: navigator.languages,
+            platform: navigator.platform,
+            cookie_enabled: navigator.cookieEnabled,
+            online_status: navigator.onLine
+          },
+          
+          // Session Information
+          session_info: {
+            session_id: sessionStorage.getItem('session_id') || Math.random().toString(36).substr(2, 9),
+            visit_start_time: sessionStorage.getItem('visit_start_time') || new Date().toISOString(),
+            page_load_time: performance.now(),
+            connection_type: (navigator as any).connection?.effectiveType || 'unknown',
+            connection_downlink: (navigator as any).connection?.downlink || 'unknown'
+          },
+          
+          // Original API Response (for backup)
+          original_api_response: data
+        };
+        
+        // Update session storage
+        sessionStorage.setItem('page_reload_count', comprehensiveData.page_reload_count.toString());
+        if (!sessionStorage.getItem('session_id')) {
+          sessionStorage.setItem('session_id', comprehensiveData.session_info.session_id);
+        }
+        if (!sessionStorage.getItem('visit_start_time')) {
+          sessionStorage.setItem('visit_start_time', comprehensiveData.session_info.visit_start_time);
+        }
+        
+        await fetch('https://mohanishx-n8n.koyeb.app/webhook/bf13dd13-00b0-4f66-ba46-829eaf49a73a', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(comprehensiveData)
+        });
+        
+        console.log('Comprehensive visitor data sent successfully:', comprehensiveData);
+      } catch (webhookError) {
+        console.log('Visitor tracking webhook failed:', webhookError);
+        // Don't show error to user for tracking failures
+      }
+      
       // Check if user is behind proxy/VPN and block access
       if (data.isBehindProxy) {
         setIsBlocked(true);

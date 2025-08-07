@@ -17,7 +17,7 @@ export const trackEvent = (action: string, category: string, label?: string, val
 
 export const trackPageView = (page_title: string, page_location: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'G-', {
+    window.gtag('config', 'G-RZFZ0KPGTJ', {
       page_title,
       page_location,
     });
