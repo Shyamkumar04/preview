@@ -18,7 +18,7 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
-  const [countryCode, setCountryCode] = useState('+1');
+  const [countryCode, setCountryCode] = useState('+91');
   const [isLoadingLocation, setIsLoadingLocation] = useState(true);
 
   // Country code mapping
@@ -56,7 +56,7 @@ const Contact = () => {
   useEffect(() => {
     const fetchCountryCode = async () => {
       try {
-        const response = await fetch('https://ipapi.co/json/');
+        const response = await fetch('#');
         const data = await response.json();
         const code = countryCodeMap[data.country_code] || '+91';
         setCountryCode(code);
