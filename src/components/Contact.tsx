@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import useEffect {useEffect} from 'react';
+import { useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, Instagram, Twitter, Bell } from 'lucide-react';
 import Newsletter from './Newsletter';
+
+// Define the countryCodeMap with proper TypeScript typing
+interface CountryCodeMap {
+  [key: string]: string;
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,15 +18,15 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
-  const [countryCode, setCountryCode] = useState('');
+  const [countryCode, setCountryCode] = useState('+1');
   const [isLoadingLocation, setIsLoadingLocation] = useState(true);
 
   // Country code mapping
-  const countryCodeMap: { [key: string]: string } = {
+  const countryCodeMap: CountryCodeMap = {
     'US': '+1', 'CA': '+1', 'GB': '+44', 'AU': '+61', 'DE': '+49', 'FR': '+33',
     'IT': '+39', 'ES': '+34', 'NL': '+31', 'BE': '+32', 'CH': '+41', 'AT': '+43',
     'SE': '+46', 'NO': '+47', 'DK': '+45', 'FI': '+358', 'IE': '+353', 'PT': '+351',
-    'GR': '+30', 'PL': '+48', 'CZ': '+420', 'HU': '+36', 'RO': '+40', 'BG': '+359',
+    'GR': '+30', 'PL': '+48', 'CZ': '+420', 'HU': '+36', 'RO': '+40',
     'HR': '+385', 'SI': '+386', 'SK': '+421', 'LT': '+370', 'LV': '+371', 'EE': '+372',
     'IN': '+91', 'CN': '+86', 'JP': '+81', 'KR': '+82', 'SG': '+65', 'MY': '+60',
     'TH': '+66', 'VN': '+84', 'PH': '+63', 'ID': '+62', 'BD': '+880', 'PK': '+92',
@@ -36,14 +41,14 @@ const Contact = () => {
     'EG': '+20', 'MA': '+212', 'DZ': '+213', 'TN': '+216', 'LY': '+218', 'SD': '+249',
     'ET': '+251', 'SO': '+252', 'DJ': '+253', 'ER': '+291', 'SS': '+211', 'TD': '+235',
     'CF': '+236', 'CM': '+237', 'GQ': '+240', 'GA': '+241', 'CG': '+242', 'CD': '+243',
-    'AO': '+244', 'ST': '+239', 'CV': '+238', 'GW': '+245', 'GN': '+224', 'SL': '+232',
+    'AO': '+244', 'ST': '+239', 'CV': '+238', 'GW': '+245', 'SL': '+232',
     'LR': '+231', 'CI': '+225', 'BF': '+226', 'ML': '+223', 'NE': '+227', 'SN': '+221',
     'GM': '+220', 'GN': '+224', 'MR': '+222', 'RU': '+7', 'KZ': '+7', 'UZ': '+998',
     'TM': '+993', 'TJ': '+992', 'KG': '+996', 'AF': '+93', 'IR': '+98', 'IQ': '+964',
     'SY': '+963', 'LB': '+961', 'JO': '+962', 'IL': '+972', 'PS': '+970', 'SA': '+966',
     'YE': '+967', 'OM': '+968', 'AE': '+971', 'QA': '+974', 'BH': '+973', 'KW': '+965',
     'TR': '+90', 'GE': '+995', 'AM': '+374', 'AZ': '+994', 'BY': '+375', 'UA': '+380',
-    'MD': '+373', 'RO': '+40', 'BG': '+359', 'MK': '+389', 'AL': '+355', 'ME': '+382',
+    'MD': '+373', 'BG': '+359', 'MK': '+389', 'AL': '+355', 'ME': '+382',
     'RS': '+381', 'BA': '+387', 'XK': '+383', 'MT': '+356', 'CY': '+357', 'IS': '+354'
   };
 
@@ -53,7 +58,7 @@ const Contact = () => {
       try {
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
-        const code = countryCodeMap[data.country_code] || '+1';
+        const code = countryCodeMap[data.country_code] || '+91';
         setCountryCode(code);
         setFormData(prev => ({ ...prev, phone: code }));
       } catch (error) {
@@ -66,19 +71,14 @@ const Contact = () => {
     };
 
     fetchCountryCode();
-  }, []);
+  }, [countryCodeMap]); // Added dependency
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
     if (name === 'phone') {
-      // Format phone number: keep only digits and country code
-      let formattedPhone = value.replace(/[^\d+]/g, '');
-      
-      // Ensure it starts with country code
-      if (!formattedPhone.startsWith('+')) {
-        formattedPhone = countryCode + formattedPhone.replace(/^\+?\d{1,4}/, '');
-      }
+      // Allow only digits and plus sign at the beginning
+      const formattedPhone = value.replace(/[^\d+]/g, '');
       
       setFormData(prev => ({
         ...prev,
@@ -100,23 +100,17 @@ const Contact = () => {
       // Prepare payload for webhook
       const payload = {
         name: formData.name,
-        mail: formData.email,  // Note: Using 'mail' as required by the webhook
-        phone_number: formData.phone.replace(/[^\d]/g, ''), // Strip non-digits for submission
+        mail: formData.email,
+        phone_number: formData.phone.replace(/[^\d]/g, ''),
         message: formData.message
       };
 
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Origin', 'https://mohanish.in');
-
-      // Send data to webhook
+      // Send data to webhook (removed unnecessary headers)
       const response = await fetch(
         'https://mohanishx-n8n.koyeb.app/webhook/f6b5ef8c-0bb1-4b86-8d39-a8c02e6407c0',
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         }
       );
@@ -125,8 +119,14 @@ const Contact = () => {
         throw new Error(`Failed to send message. Status: ${response.status}`);
       }
 
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
+      // Reset form (preserve phone country code)
+      setFormData({ 
+        name: '', 
+        email: '', 
+        phone: countryCode, 
+        message: '' 
+      });
+      
       alert('Message sent successfully!');
     } catch (error) {
       console.error('Submission error:', error);
@@ -135,7 +135,6 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
   return (
     <section id="contact" className="py-20 bg-background/80">
       <div className="container mx-auto px-4">
