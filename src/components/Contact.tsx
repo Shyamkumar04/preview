@@ -64,7 +64,7 @@ const Contact = () => {
       } catch (error) {
         console.error('Failed to fetch country code:', error);
         setCountryCode('+91');
-        setFormData(prev => ({ ...prev, phone: '+1' }));
+        setFormData(prev => ({ ...prev, phone: '+91' }));
       } finally {
         setIsLoadingLocation(false);
       }
