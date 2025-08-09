@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useEffect {useEffect} from 'react'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, Instagram, Twitter, Bell } from 'lucide-react';
 import Newsletter from './Newsletter';
 
