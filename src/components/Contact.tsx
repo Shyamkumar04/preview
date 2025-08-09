@@ -56,14 +56,14 @@ const Contact = () => {
   useEffect(() => {
     const fetchCountryCode = async () => {
       try {
-        const response = await fetch('#');
+        const response = await fetch('');
         const data = await response.json();
         const code = countryCodeMap[data.country_code] || '+91';
         setCountryCode(code);
         setFormData(prev => ({ ...prev, phone: code }));
       } catch (error) {
         console.error('Failed to fetch country code:', error);
-        setCountryCode('+1');
+        setCountryCode('+91');
         setFormData(prev => ({ ...prev, phone: '+1' }));
       } finally {
         setIsLoadingLocation(false);
