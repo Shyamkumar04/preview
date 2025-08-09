@@ -3,7 +3,7 @@ import React from 'react';
 const Certifications = () => {
   const certifications = [
     {
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Red_Hat_Logo_2019.svg/920px-Red_Hat_Logo_2019.svg.png',
+      logo: 'https://download.logo.wine/logo/Red_Hat/Red_Hat-Logo.wine.png',
       name: 'Red Hat Certified System Administrator',
       issuer: 'Red Hat',
       year: '2025',
