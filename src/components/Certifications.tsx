@@ -3,11 +3,21 @@ import React from 'react';
 const Certifications = () => {
   const certifications = [
     {
+      logo: 'https://www.redhat.com/rhdc/managed-files/rhb-logos-red_hat_logo-download.svg',
+      name: 'Red Hat Certified System Administrator',
+      issuer: 'Red Hat',
+      year: '2025',
+      status: 'Active',
+      category: 'Security',
+      verifyLink: 'https://rhtapps.redhat.com/verify?certId=250-100-229',
+      downloadLink: 'https://www.credly.com/badges/9b57150a-2294-460c-8f1e-c76b38f34851/'
+    },
+    {
       logo: 'https://partners.comptia.org/docs/default-source/resources/securityplus-logo.png',
       name: 'CompTIA Security+',
       issuer: 'CompTIA',
       year: '2023',
-      status: 'Active',
+      status: 'In Progress',
       category: 'Security',
       verifyLink: 'https://www.credly.com/badges/security-plus',
       downloadLink: 'https://www.comptia.org/certifications/security'
@@ -17,7 +27,7 @@ const Certifications = () => {
       name: 'Certified Ethical Hacker (CEH)',
       issuer: 'EC-Council',
       year: '2023',
-      status: 'Active',
+      status: 'In Progress',
       category: 'Security',
       verifyLink: 'https://aspen.eccouncil.org/VerifyBadge',
       downloadLink: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/'
@@ -27,7 +37,7 @@ const Certifications = () => {
       name: 'AWS Solutions Architect',
       issuer: 'Amazon Web Services',
       year: '2022',
-      status: 'Active',
+      status: 'In Progress',
       category: 'Cloud',
       verifyLink: 'https://www.credly.com/badges/aws-solutions-architect',
       downloadLink: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/'
@@ -37,7 +47,7 @@ const Certifications = () => {
       name: 'CompTIA Linux+',
       issuer: 'CompTIA',
       year: '2022',
-      status: 'Active',
+      status: 'In Progress',
       category: 'Systems',
       verifyLink: 'https://www.credly.com/badges/linux-plus',
       downloadLink: 'https://www.comptia.org/certifications/linux'
@@ -47,7 +57,7 @@ const Certifications = () => {
       name: 'Docker Certified Associate',
       issuer: 'Docker',
       year: '2022',
-      status: 'Active',
+      status: 'In Progress',
       category: 'DevOps',
       verifyLink: 'https://credentials.docker.com/verify',
       downloadLink: 'https://www.docker.com/certification'
@@ -67,7 +77,7 @@ const Certifications = () => {
       name: 'Azure Security Engineer',
       issuer: 'Microsoft',
       year: '2023',
-      status: 'Active',
+      status: 'In Progress',
       category: 'Cloud',
       verifyLink: 'https://docs.microsoft.com/en-us/learn/certifications/azure-security-engineer',
       downloadLink: 'https://docs.microsoft.com/en-us/learn/certifications/azure-security-engineer'
@@ -77,7 +87,7 @@ const Certifications = () => {
       name: 'Kubernetes Administrator',
       issuer: 'CNCF',
       year: '2023',
-      status: 'Active',
+      status: 'In Progress',
       category: 'DevOps',
       verifyLink: 'https://www.credly.com/badges/kubernetes-administrator',
       downloadLink: 'https://www.cncf.io/certification/cka/'
